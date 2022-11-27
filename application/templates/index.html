@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="w3-container w3-padding-32" id="projects" style = "margin-top:25px">
+    <h1 class="text-center w3-container">TRANG CHỦ</h1>
+  </div>
+
+<div class = 'row p-4'>
+
+    <div class="card m-auto" style = "width: 90%;" data-aos="slide-up">
+        
+        <div class = "card-body ">
+            <div id = 'description'>
+                {% block content1 %}
+                {% endblock %}
+            </div>
+            <p style = 'margin-top: 15px'>
+                Bộ dữ liệu mô tả thời tiết ở sân bay quốc tế Raleigh-Durham, tọa lạc ở North Carolina, quốc gia Hoa Kì từ năm 2017 - 2022. Bộ dữ liệu được thu thập bởi chính phủ Hoa Kỳ. Tìm hiểu kỹ hơn về data ở <a href="https://catalog.data.gov/dataset/local-weather-archive">đây</a>
+            </p>
+
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card m-auto" style = "width: 90%;" data-aos="slide-up">
+        <div class = "card-body ">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 400px;
+            overflow: auto;
+            }
+            .table-wrapper-scroll-y {
+            display: block;
+            }
+    </style>
+            <div id = 'container'>
+                
+                <table class="table table-bordered table-hover table-striped" id="dtDynamicVerticalScrollExample" width="100%">
+                <thead>
+                    <tr style="text-align: right;">
+                      <th>Tên cột</th>
+                      <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>date</th>
+                        <th>Thời gian (định dạng tháng/ngày/năm)</th>
+                    </tr>  
+                    <tr>
+                        <th>tmin</th>
+                        <th>Nhiệt độ nhỏ nhất</th>
+                    </tr> 
+                    <tr>
+                        <th>tmax</th>
+                        <th>Nhiệt độ lớn nhất</th>
+                    </tr> 
+                    <tr>
+                        <th>prcp</th>
+                        <th>Lượng mưa</th>
+                    </tr> 
+                    <tr>
+                        <th>snow</th>
+                        <th>Lượng tuyết rơi</th>
+                    </tr>   
+                    <tr>
+                        <th>snwd</th>
+                        <th>Độ dày của tuyết</th>
+                    </tr> 
+                    <tr>
+                        <th>awnd</th>
+                        <th>Tốc độ gió trung bình</th>
+                    </tr>   
+                </tbody>
+                </table>
+            </div>
+
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card m-auto ml-auto mr-auto" style = "width: 90%;" data-aos="fade-right">
+        <div class = "card-body">
+            <div id = 'chart1'>
+                
+            </div>
+            <p>
+                Ô này sẽ chứa một biểu đồ
+            </p>
+        </div>
+    </div>
+    <div class="card m-auto ml-auto mr-auto" style = "width: 90%;" data-aos="fade-left">
+        <div class = "card-body">
+            <div id = 'chart2'></div>
+            <p>
+                Ô này sẽ chứa một biểu đồ khác
+            </p>
+        </div>
+    </div>
+</div>
+<!-- plotly CDM -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript">
+    var graphs1 = {{ graph1JSON | safe}};
+    Plotly.plot("chart1", graphs1,{});
+
+    var graphs2 = {{ graph2JSON | safe}};
+    Plotly.plot("chart2", graphs2,{});
+
+
+
+</script>
+
+{% endblock %}
