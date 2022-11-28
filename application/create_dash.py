@@ -40,7 +40,7 @@ def init_dashboard(flask_app):
 
     # --------MAIN-----------
     app.layout = html.Div([
-        html.Div(html.H2(children='Thông tin thời tiết ở sân bay quốc tế Raleigh Durham'), id='topic'),
+        html.Div(html.H2(children='Thông tin thời tiết ở sân bay quốc tế Raleigh Durham'), id='topic', style={'margin-top': 20}),
         html.Div(dcc.Tabs(id="tabs-styled-with-inline", value=1, children=[
             dcc.Tab(label='Dash 1', value=1, style=tab_style, selected_style=tab_selected_style),
             dcc.Tab(label='Dash 2', value=2, style=tab_style, selected_style=tab_selected_style)
@@ -54,7 +54,7 @@ def init_dashboard(flask_app):
             return html.Div([
         dbc.Row([
             html.Div(
-                dcc.RadioItems(id="val", 
+                dcc.RadioItems(id="val", style={'margin-top':20, 'color':'white'},
                     options = [{"label": "Nhỏ nhất", "value": "min"},
                                 {"label": "Lớn nhất", "value": "max"},
                                 {"label": "Tổng", "value": "sum"},
@@ -69,13 +69,13 @@ def init_dashboard(flask_app):
                     html.P("Lượng mưa", className='title'),
                     dcc.Graph(id="prcp_year")
                 ])
-            ], width=6),
+            ], width=6, style={'margin-top': 20}),
             dbc.Col([
                 dbc.Card([
                     html.P("Nhiệt độ", className='title'),
                     dcc.Graph(id="hist_temp")
                 ])
-            ], width=6)
+            ], width=6, style={'margin-top': 20})
         ], className='row1'),
 
         dbc.Row([
@@ -84,13 +84,13 @@ def init_dashboard(flask_app):
                     html.P("Tốc độ gió trung bình", className='title'),
                     dcc.Graph(id="awnd_year")
                 ])
-            ], width=4),
+            ], width=4, style={'margin-top': 20}),
             dbc.Col([
                 dbc.Card([
                     html.P("Tuyết rơi và độ dày", className='title'),
                     dcc.Graph(id="snow_year")
                 ])
-            ], width=8)
+            ], width=8, style={'margin-top': 20})
         ], className='row2')
     ])
         else:
@@ -122,7 +122,7 @@ def init_dashboard(flask_app):
                     dcc.Graph(id="tmax_month")
                 ])
             ], width=12)
-        ])
+        ], style={'margin-top': 20})
     ])
 
     @app.callback([Output("prcp_year", "figure"),
