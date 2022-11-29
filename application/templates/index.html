@@ -107,6 +107,17 @@
             </p>
         </div>
     </div>
+
+    <div class="card m-auto ml-auto mr-auto" style = "width: 90%;" data-aos="fade-right">
+        <div class = "card-body">
+            <div id = 'chart3'>
+                
+            </div>
+            <p>
+                Ô này sẽ chứa một biểu đồ
+            </p>
+        </div>
+    </div>
 </div>
 <!-- plotly CDM -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -117,7 +128,6 @@
 
     var graphs2 = {{ graph2JSON | safe}};
     Plotly.plot("chart2", graphs2,{});
-
 
 
 </script>

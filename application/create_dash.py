@@ -30,7 +30,8 @@ def init_dashboard(flask_app):
     tab_style = {
         'borderBottom': '1px solid #d6d6d6',
         'padding': '6px',
-        'backgroundColor': 'black'
+        'backgroundColor': 'black',
+        'color':'white'
     }
 
     tab_selected_style = {
@@ -47,6 +48,7 @@ def init_dashboard(flask_app):
     app.layout = html.Div([
         html.Div(html.H2(children='Thông tin thời tiết ở sân bay quốc tế Raleigh Durham'), id='topic', style={'margin-top': 100}),
         html.Div(dcc.Tabs(id="tabs-styled-with-inline", value=1, children=[
+            
             dcc.Tab(label='Dash 1', value=1, style=tab_style, selected_style=tab_selected_style),
             dcc.Tab(label='Dash 2', value=2, style=tab_style, selected_style=tab_selected_style)
         ], style=tabs_styles), id = 'tab-tabs'),
@@ -66,7 +68,7 @@ def init_dashboard(flask_app):
                                 {"label": "Trung bình", "value": "mean"},
                                 {"label": "Trung vị", "value": "median"}],
                                 value="sum"),
-            id = 'radioItems', style={'margin-top': 20, 'color': 'white'})
+            id = 'radioItems', style={'margin-top': 20, 'color': 'white'}), 
         ]),
         dbc.Row([
             dbc.Col([
