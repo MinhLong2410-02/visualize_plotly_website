@@ -1,9 +1,12 @@
-import plotly.express as px
-import pandas as pd
-from dash import Dash, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
+import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
+from dash import Dash, Input, Output, dcc, html
+
+from .layout import html_layout
+
 pio.templates.default = 'plotly_dark'
 
 
@@ -17,34 +20,36 @@ def init_dashboard(flask_app):
         url_base_pathname="/dash/",
         name = "Dashboard",
         server = flask_app, 
-        external_stylesheets=[dbc.themes.BOOTSTRAP]
+        external_stylesheets=['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css']
     )
     
     tabs_styles = {
         'height': '35px'
     }
-
+    dropdown_style = {'display': 'flex', 'align-items': 'center', 'justify-content': 'center'}
     tab_style = {
         'borderBottom': '1px solid #d6d6d6',
         'padding': '6px',
-        'fontWeight': 'bold'
+        'backgroundColor': 'black'
     }
 
     tab_selected_style = {
         'borderTop': '1px solid #d6d6d6',
         'borderBottom': '1px solid #d6d6d6',
-        'backgroundColor': '#119DFF',
-        'color': 'white',
-        'padding': '6px'
+        'backgroundColor': 'white',
+        'color': 'black',
+        'padding': '6px',
+        'fontWeight': 'bold',
     }
 
     # --------MAIN-----------
+    app.index_string = html_layout
     app.layout = html.Div([
-        html.Div(html.H2(children='Thông tin thời tiết ở sân bay quốc tế Raleigh Durham'), id='topic', style={'margin-top': 20}),
+        html.Div(html.H2(children='Thông tin thời tiết ở sân bay quốc tế Raleigh Durham'), id='topic', style={'margin-top': 100}),
         html.Div(dcc.Tabs(id="tabs-styled-with-inline", value=1, children=[
             dcc.Tab(label='Dash 1', value=1, style=tab_style, selected_style=tab_selected_style),
             dcc.Tab(label='Dash 2', value=2, style=tab_style, selected_style=tab_selected_style)
-        ], style=tabs_styles), id = 'tab', style={'margin-top': 20}),
+        ], style=tabs_styles), id = 'tab-tabs'),
         html.Div(id="tabs-content-inline")
     ])
     @app.callback(Output('tabs-content-inline', 'children'),
@@ -113,7 +118,10 @@ def init_dashboard(flask_app):
                             {"label": "2021", "value": 2021},
                             {"label": "2022", "value": 2022}],
                 multi=False,
-                value=2021)], id = 'radioItems', style={'margin-top': 20})
+                clearable=False,
+                placeholder="Chọn 1 năm",
+                value=2021)], 
+                id = 'radioItems', style=dropdown_style)
         ]),
         dbc.Row([
             dbc.Col([
@@ -367,4 +375,5 @@ def init_dashboard(flask_app):
         ))
         fig5.update_layout(yaxis_title=None, xaxis_title=None, margin=dict(l=5, r=5, t=5, b=5))
         return fig1, fig2, fig3, fig4, fig5
+    
     return app
