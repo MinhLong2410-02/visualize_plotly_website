@@ -9,8 +9,8 @@ Bộ dữ liệu mô tả thời tiết ở sân bay quốc tế `Raleigh-Durham
 Web được chạy bằng Flask, các biểu đồ được tạo ra bởi plotly ở back-end sẽ được convert về JSON và gửi tới Front-end và được xử lý bằng JavaScript
 
 ## Các chỉ mục của web
-- **Projects**: Giới thiệu và EDA bộ dữ liệu (chưa làm xong)
-- **Dashboard**: Dashboard (chưa làm xong)
+- **Projects**: Giới thiệu và EDA bộ dữ liệu *(đã xong)* 
+- **Dashboard**: Dashboard *(đã xong)* 
 - **About**: Giới thiệu thành viên
 ## Cải thiện
 
