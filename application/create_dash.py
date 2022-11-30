@@ -20,7 +20,8 @@ def init_dashboard(flask_app):
         url_base_pathname="/dash/",
         name = "Dashboard",
         server = flask_app, 
-        external_stylesheets=['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css']
+        external_stylesheets=['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',
+                              "https://unpkg.com/aos@next/dist/aos.css"]
     )
     
     tabs_styles = {
