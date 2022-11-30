@@ -14,7 +14,6 @@ Web được chạy bằng Flask, các biểu đồ được tạo ra bởi plot
 - **About**: Giới thiệu thành viên
 ## Cải thiện
 
-- Bổ sung EDA và đưa lên **Projects**
-- Sửa lại **Dashboard**: thêm thanh chỉ mục *(đã xong)* và thêm biểu đồ
-- Thêm hiệu ứng cho website
+- Bổ sung EDA và đưa lên **Projects**  *(đã xong)*
+- Sửa lại **Dashboard**: thêm thanh chỉ mục *(đã xong)* và thêm biểu đồ  *(đã xong)*
 
