@@ -8,7 +8,7 @@
 
 <div class = 'row p-4'>
 
-    <div class="card m-auto" style = "width: 90%;" data-aos="slide-up">
+    <div class="card m-auto" style = "width: 100%;" data-aos="slide-up">
         
         <div class = "card-body ">
             <div id = 'description'>
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="card m-auto" style = "width: 90%" data-aos="fade-left">
+    <div class="card m-auto" style = "width: 100%" data-aos="fade-left">
         <div class = "card-body ">
             
             <div id = 'container'>
@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <div class="card m-auto" style = "width: 90%;" data-aos="fade-right">
+    <div class="card m-auto" style = "width: 100%;" data-aos="fade-right">
         <div class = "card-body ">
             
             <div id = 'container'>
@@ -136,37 +136,58 @@
     </div>
 
 
-    <div class="card m-auto ml-auto mr-auto" style = "width: 90%;" data-aos="fade-left">
+    <div class="card m-auto ml-auto mr-auto" style = "width: 100%;" data-aos="fade-left">
         <div class = "card-body">
             <div id = 'chart1'></div>
-            <h5 style = 'margin-top: 15px'>Lượng mưa thay đổi thế nào qua các năm?</h5>
+            <h5 style = 'margin-top: 15px'>Tổng quan nhiệt độ cao nhất và thấp nhất, tổng quan nhiệt độ từ năm 2017 tới 2022 </h5>
 
-            <li>Năm 2018 đánh dấu lượng mưa nhiều nhất, theo sau là năm 2020</li>
-            <li>Năm 2022 có lượng mưa thấp nhất do bộ data chỉ ghi lại tới tháng 5/2022</li>
-
-
+            <li> <b>Nhận xét</b>: Nhìn chung nhiệt độ ở sân bay quốc tế Raleigh Durham đây nóng</li>
 
         </div>
     </div>
-    <div class="card m-auto ml-auto mr-auto" style = "width: 90%;" data-aos="fade-left">
+    <div class="card m-auto ml-auto mr-auto" style = "width: 100%;" data-aos="fade-right">
         <div class = "card-body">
             <div id = 'chart2'></div>
-            <p>
-                Ô này sẽ chứa một biểu đồ khác
-            </p>
+            <h5 style = 'margin-top: 15px'>Sự thay đổi nhiệt độ trong năm</h5>
+
+            <li> <b>Nhận xét</b>: năm  2020  nhiệt độ có sự biến động lạnh vào đầu năm và cuối năm và cao lên vào giữa năm. Nhiệt độ cao nhất rơi vào tháng 7</li>
+            <li> Nếu xem qua biểu đồ này với các năm khác ở trang dashboard, ta có thể nhận thấy các trend tương tự. Được biết tháng 6-8 ở North Carolina sẽ rơi vào mùa hè nên lúc này sẽ là khoảng thời gian nóng nhất trong năm</li>
+            <li> Cùng với lý do tương tự, những tháng 10-12 cuối năm sẽ rơi vào mùa đông nên đạt độ rét kỷ lục trong năm</li>
+
         </div>
     </div>
 
-    <div class="card m-auto ml-auto mr-auto" style = "width: 90%;" data-aos="fade-right">
+    
+
+    <div class="card m-auto ml-auto mr-auto" style = "width: 100%;" data-aos="fade-left">
         <div class = "card-body">
-            <div id = 'chart3'>
-                
-            </div>
-            <p>
-                Ô này sẽ chứa một biểu đồ
-            </p>
+            <div id = 'chart4'></div>
+            <h5 style = 'margin-top: 15px'>Mưa nhiều nhất vào tháng nào trong năm</h5>
+
+            <li> <b>Nhận xét</b>: năm  2020  có lượng mưa lớn nhất vào tháng  8</li>
         </div>
     </div>
+
+
+    <div class="card m-auto ml-auto mr-auto" style = "width: 100%;" data-aos="fade-left">
+        <div class = "card-body">
+            <div id = 'chart3'></div>
+            <h5 style = 'margin-top: 15px'>Trend các lượng mưa trong năm theo tháng</h5>
+
+            <li> <b>Nhận xét</b>: Không có trend cụ thể, mùa mưa xảy ra ngẫu nhiên theo</li>
+            <li>North Carolina không phân biệt mùa mưa và mùa khô như một số các quốc gia khác như Việt Nam</li>
+        </div>
+    </div>
+
+    <div class="card m-auto ml-auto mr-auto" style = "width: 100%;" data-aos="fade-right">
+        <div class = "card-body">
+            <div id = 'chart5'></div>
+            <h5 style = 'margin-top: 15px'>Tốc độ gió trung bình hằng năm có thay đổi nhiều hay không ?</h5>
+
+            <li> <b>Nhận xét</b>: tốc độ gió trung bình hằng năm không có thay đổi nhiều</li>
+        </div>
+    </div>
+
 </div>
 <!-- plotly CDM -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -178,6 +199,14 @@
     var graphs2 = {{ graph2JSON | safe}};
     Plotly.plot("chart2", graphs2,{});
 
+    var graphs3 = {{ graph3JSON | safe}};
+    Plotly.plot("chart3", graphs3, {});
+
+    var graphs4 = {{ graph4JSON | safe}};
+    Plotly.plot("chart4", graphs4,{});
+
+    var graphs5 = {{ graph5JSON | safe}};
+    Plotly.plot("chart5", graphs5,{});
 
 </script>
 

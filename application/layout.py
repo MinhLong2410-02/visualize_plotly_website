@@ -36,5 +36,3 @@ html_layout = """
         </body>
     </html>
 """
-import dash_bootstrap_components as dbc
-print(dbc.themes.BOOTSTRAP)
